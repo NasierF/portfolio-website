@@ -1,6 +1,9 @@
 "use client";
+import '@fontsource/poppins/400.css'; // Regular weight
+import '@fontsource/poppins/700.css'; // Bold weight
 import { Box, Typography, ThemeProvider, useTheme } from "@mui/material";
 import NavBar from "@compnents/NavBar";
+import Introduction from "@compnents/Introduction"
 import theme from "@theme";
 
 export default function Home() {
@@ -12,25 +15,25 @@ export default function Home() {
       {/* Main Scrollable Sections */}
       <Box
         sx={{
-          height: "100vh", // Full viewport height
-          overflowY: "scroll", // Enable scrolling
-          scrollSnapType: "y mandatory", // Enable snapping
-          scrollBehavior: "smooth", // Smooth scrolling
+          height: "100vh", 
+          overflowY: "scroll", 
+          scrollSnapType: "y mandatory", 
+          scrollBehavior: "smooth", 
         }}
       >
         {/* Section 1 */}
         <Box
           sx={{
-            height: "100vh", // Full viewport height
+            height: "100vh", 
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            scrollSnapAlign: "start", // Snap to top
-            backgroundColor: "black", // Background for variety
+            scrollSnapAlign: "start", 
+            backgroundColor: theme.palette.secondary.dark, 
             color: "white",
           }}
         >
-          <Typography variant="h1">Welcome to My Website!</Typography>
+          <Introduction/>
         </Box>
 
         {/* Section 2 */}

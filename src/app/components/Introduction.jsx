@@ -15,8 +15,8 @@ const Introduction = () => {
         sx={{
             position: "absolute", 
             top: "20%", 
-            left: "2%", 
-            transform: "scale(.8)", 
+            left: "4%", 
+            transform: "scale(.85)", 
             transformOrigin: "top left", 
         }}
         >

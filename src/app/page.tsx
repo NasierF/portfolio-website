@@ -1,10 +1,13 @@
 "use client";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import '@fontsource/poppins/400.css'; // Regular weight
 import '@fontsource/poppins/700.css'; // Bold weight
 import { Box, Typography, ThemeProvider, useTheme } from "@mui/material";
 import NavBar from "@compnents/NavBar";
 import Introduction from "@compnents/Introduction"
 import theme from "@theme";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
 
@@ -31,6 +34,7 @@ export default function Home() {
             scrollSnapAlign: "start", 
             backgroundColor: theme.palette.secondary.dark, 
             color: "white",
+            position: "relative",
           }}
         >
           <Introduction/>
@@ -44,7 +48,7 @@ export default function Home() {
             justifyContent: "center",
             alignItems: "center",
             scrollSnapAlign: "start",
-            backgroundColor: theme.palette.secondary.dark,
+            backgroundColor: "black",
             color: "white",
           }}
         >

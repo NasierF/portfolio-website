@@ -3,17 +3,19 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@fontsource/poppins/400.css"; // Regular weight
 import "@fontsource/poppins/700.css"; // Bold weight
-import { Box, Typography, ThemeProvider } from "@mui/material";
+import { Box, Typography, ThemeProvider, useMediaQuery } from "@mui/material";
 import NavBar from "@compnents/NavBar";
 import Introduction from "@compnents/Introduction";
 import theme from "@theme";
 import ScrollArrow from "@compnents/ScrollArrow";
 import useSmoothScroll from "@/app/hooks/useSmoothScroll";
+import Timeline from "@compnents/Timeline";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useSmoothScroll(); // Hook for smooth scrolling
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,11 +59,11 @@ export default function Home() {
             justifyContent: "center",
             alignItems: "center",
             scrollSnapAlign: "start",
-            backgroundColor: "black",
+            backgroundColor: theme.palette.secondary.dark,
             color: "white",
           }}
         >
-          <Typography variant="h2">About Me</Typography>
+          <Timeline />
         </Box>
 
         {/* Section 3 */}

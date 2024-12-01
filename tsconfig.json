@@ -25,6 +25,7 @@
       "@styles/*": ["./src/app/styles/*"],
       "@hooks/*": ["./src/app/hooks/*"],
       "@documents/*": ["./src/app/documents/*"],
+      "@data/*": ["./src/app/data/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

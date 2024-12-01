@@ -19,7 +19,7 @@ const Introduction = () => {
             alignItems: "flex-start", 
             justifyContent: "space-between",
             position: "absolute", 
-            top: "20%", 
+            top: "16%", 
             left: "16%", 
             transform: "scale(1)", 
             transformOrigin: "top left", 

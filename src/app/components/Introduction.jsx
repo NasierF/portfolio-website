@@ -1,7 +1,8 @@
-import { Toolbar, AppBar, Typography, useTheme, Box} from "@mui/material";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Toolbar, AppBar, Typography, useTheme, Box} from "@mui/material"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import WaveIcon from "@compnents/WaveAnimation"
+import ScrollArrow from "@compnents/ScrollArrow"
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -13,10 +14,14 @@ const Introduction = () => {
     return(
         <Box
         sx={{
+            display: "flex",
+            flexDirection: "column", 
+            alignItems: "flex-start", 
+            justifyContent: "space-between",
             position: "absolute", 
             top: "20%", 
-            left: "4%", 
-            transform: "scale(.85)", 
+            left: "16%", 
+            transform: "scale(1)", 
             transformOrigin: "top left", 
         }}
         >
@@ -58,6 +63,7 @@ const Introduction = () => {
                 .
             </Typography>
         </Box>
+
         
 );
 

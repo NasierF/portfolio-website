@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.13.5",
     "@fontsource/josefin-sans": "^5.1.0",
     "@fontsource/poppins": "^5.1.0",
+    "@mui/icons-material": "^6.1.9",
     "@mui/material": "^6.1.8",
     "gsap": "^3.12.5",
     "next": "14.2.5",

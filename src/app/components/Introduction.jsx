@@ -2,7 +2,7 @@ import { Toolbar, AppBar, Typography, useTheme, Box} from "@mui/material"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import WaveIcon from "@compnents/WaveAnimation"
-import ScrollArrow from "@compnents/ScrollArrow"
+import ContactBar from "@compnents/ContactBar"
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -62,6 +62,7 @@ const Introduction = () => {
             </span>
                 .
             </Typography>
+            <ContactBar/>
         </Box>
 
         

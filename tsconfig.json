@@ -24,6 +24,7 @@
       "@theme": ["./src/app/Theme.jsx"],
       "@styles/*": ["./src/app/styles/*"],
       "@hooks/*": ["./src/app/hooks/*"],
+      "@documents/*": ["./src/app/documents/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,4 +1,10 @@
 const timelineData = [
+  {
+    date: "filler",
+    title: "filler",
+    description: "filler",
+    type: "filler",
+  },
     {
       date: "August 2020",
       title: "Began attending Temple University",

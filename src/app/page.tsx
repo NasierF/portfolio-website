@@ -10,12 +10,13 @@ import theme from "@theme";
 import ScrollArrow from "@compnents/ScrollArrow";
 import useSmoothScroll from "@/app/hooks/useSmoothScroll";
 import Timeline from "@compnents/Timeline";
-import GsapTest from "@compnents/GsapTest";
+import MySkills from "@compnents/MySkills";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  useSmoothScroll(); // Hook for smooth scrolling
+  useSmoothScroll(); //Hook for smooth scrolling
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
@@ -28,12 +29,13 @@ export default function Home() {
           height: "100vh",
           overflowY: "scroll",
           overflowX: "hidden",
+          msOverflowY: "hidden",
           scrollSnapType: "y mandatory",
           scrollBehavior: "smooth",
           
         }}
       >
-        {/* Section 1 */}
+        {/* Section 1 -- Introduction */}
         <Box
           id="section01"
           sx={{
@@ -49,11 +51,10 @@ export default function Home() {
           }}
         >
           <Introduction />
-          {/* ScrollArrow only on the first page */}
-          <ScrollArrow href="#section02" />
+          <ScrollArrow href="#section02" /> {/*debating on whether to make this pinned throughout the website or not*/}
         </Box>
 
-        {/* Section 2 */}
+        {/* Section 2 -- Timeline */}
         <Box
           id="section02"
           sx={{
@@ -64,34 +65,26 @@ export default function Home() {
             alignItems: "center",
             scrollSnapAlign: "start",
             backgroundColor: theme.palette.secondary.dark,
-            color: "white",
           }}
         >
-          <Paper sx={{
-            textAlign: 'center',
-            color: theme.palette.secondary.dark,
-            height: 60,
-            lineHeight: '60px',
-            marginTop: "10%",
-          }}>
-          </Paper>
            <Timeline/> {/*timeline built using gsap animations*/}
         </Box>
 
-        {/* Section 3 */}
+        {/* Section 3 -- Skills*/}
         <Box
           id="section03"
           sx={{
             height: "100vh",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "center", 
             scrollSnapAlign: "start",
             backgroundColor: theme.palette.secondary.dark,
             color: "white",
           }}
         >
-          <Typography variant="h2">Projects</Typography>
+          <MySkills/>
         </Box>
       </Box>
     </ThemeProvider>

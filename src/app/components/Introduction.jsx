@@ -6,8 +6,6 @@ import ContactBar from "@compnents/ContactBar"
 gsap.registerPlugin(ScrollTrigger);
 
 
-
-
 const Introduction = () => {
     const theme = useTheme();
 

@@ -1,10 +1,8 @@
 import React from "react";
-import { Typography, Paper, Box, styled } from "@mui/material";
+import { Typography, Paper, Box, styled, useMediaQuery } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import Image from "next/image";
-
-const WIDTH = 100;
-const HEIGHT = 100;
+import theme from "@theme";
 
 const HoverBox = styled(Box)(() => ({
     position: "relative",
@@ -31,6 +29,14 @@ const SkillText = styled(Typography)(() => ({
 }));
 
 const MySkills = () => {
+
+    const XS = useMediaQuery(theme.breakpoints.down("xs")); 
+    const SM = useMediaQuery(theme.breakpoints.down("sm")); 
+    const MD = useMediaQuery(theme.breakpoints.down("md")); 
+
+    
+    const WIDTH = XS ? 50 : SM ? 70 : MD ? 100 : 100;
+    const HEIGHT = XS ? 50 : SM ? 70 : MD ? 100 : 100;
     return (
         <>
             <Typography variant="h2" sx={{ position: "relative", top: "10rem" }}>
@@ -38,9 +44,9 @@ const MySkills = () => {
             </Typography>
             <Grid
                 container
-                rowSpacing={{ xs: 3, sm: 0, md: 10 }}
-                columnSpacing={{ xs: 20, sm: 10, md: 5 }}
-                columns={{ xs: 20, sm: 30, md: 15 }}
+                rowSpacing={{ xs: 5, sm: 5, md: 10}}
+                columnSpacing={{ xs: 10, sm: 10, md: 5}}
+                columns={{ xs: 3, sm: 15, md: 15}}
                 sx={{
                     width: "100%",
                     padding: "5rem",
@@ -64,7 +70,7 @@ const MySkills = () => {
                     { src: "/icons/linux-svg.svg", alt: "Linux" },
                     { src: "/icons/jira-svg.svg", alt: "Jira" },
                 ].map((skill, index) => (
-                    <Grid size={3} key={index}>
+                    <Grid size={{md: 3,sm: 3, xs: 1 }} key={index}>
                         <HoverBox>
                             <Image src={skill.src} alt={skill.alt} width={WIDTH} height={HEIGHT} />
                             <SkillText className="skill-text">{skill.alt}</SkillText>

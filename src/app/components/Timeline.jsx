@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import timelineData from "@data/timelineData";
 import TimelineCard from "@compnents/TimelineCard";
 
+
+
 const Timeline = () => {
+  const isMobile = useMediaQuery("(max-width:600px)");
   const cardsRef = useRef([]);
   const listRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);

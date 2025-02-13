@@ -17,7 +17,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   useSmoothScroll(); //Hook for smooth scrolling
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const smallScreen = useMediaQuery(theme.breakpoints.down("xs"));
+  const mediumScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const largeScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <ThemeProvider theme={theme} >
@@ -30,7 +33,7 @@ export default function Home() {
           overflowY: "scroll",
           overflowX: "hidden",
           msOverflowY: "hidden",
-          scrollSnapType: "y mandatory",
+          scrollSnapType: isMobile ? "unset" : "y mandatory",
           scrollBehavior: "smooth",
           
         }}
@@ -51,7 +54,7 @@ export default function Home() {
           }}
         >
           <Introduction />
-          <ScrollArrow href="#section02" /> {/*debating on whether to make this pinned throughout the website or not*/}
+          { (largeScreen || mediumScreen) && <ScrollArrow href="#section02" />}
         </Box>
 
         {/* Section 2 -- Timeline */}
@@ -78,7 +81,8 @@ export default function Home() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center", 
+            alignItems: "center",
+            textAlign: "center", 
             scrollSnapAlign: "start",
             backgroundColor: theme.palette.secondary.dark,
             color: "white",

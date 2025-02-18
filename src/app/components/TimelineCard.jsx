@@ -9,18 +9,7 @@ import { useRef, useEffect } from "react";
 const TimelineCard = ({ title, date, type, linkTitle, linkUrl, isHighlighted }) => {
     const cardRef = useRef(null);
 
-    // useEffect(() => {
-    //     if (cardRef.current) {
-    //         gsap.to(cardRef.current, {
-    //             scale: isHighlighted ? 1.1 : 0.9, 
-    //             opacity: isHighlighted ? 1 : 0.6, 
-    //             duration: 0.3,
-    //             ease: "power3.out",
-    //         });
-    //     }
-    // }, [isHighlighted]); 
-
-
+     
     return (
         <Card
             sx={(theme) => ({

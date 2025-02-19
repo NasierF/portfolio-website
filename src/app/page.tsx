@@ -1,6 +1,8 @@
 "use client";
+import { useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import "@fontsource/poppins/400.css"; // Regular weight
 import "@fontsource/poppins/700.css"; // Bold weight
 import { Box, Typography, ThemeProvider, useMediaQuery, Paper } from "@mui/material";
@@ -10,13 +12,24 @@ import theme from "@theme";
 import ScrollArrow from "@compnents/ScrollArrow";
 import useSmoothScroll from "@/app/hooks/useSmoothScroll";
 import Timeline from "@compnents/Timeline";
-import GsapTest from "@compnents/GsapTest";
-
+import MySkills from "@compnents/MySkills";
+import TimelineMobile from "@compnents/TimelineMobile"
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
+
+
 
 export default function Home() {
-  useSmoothScroll(); // Hook for smooth scrolling
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const scrollArrow = useMemo(() => <ScrollArrow target="#section02" />, []);//pre render 
+  useSmoothScroll(); //Hook for smooth scrolling
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const smallScreen = useMediaQuery(theme.breakpoints.down("xs"));
+  const mediumScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const largeScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const XS = useMediaQuery(theme.breakpoints.down("xs")); // <600px
+  const SM = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600px - 899px
+  const MD = useMediaQuery(theme.breakpoints.between("md", "lg")); // 900px - 1199px
+  const LG = useMediaQuery(theme.breakpoints.up("lg")); // ≥1200px
 
   return (
     <ThemeProvider theme={theme} >
@@ -28,12 +41,13 @@ export default function Home() {
           height: "100vh",
           overflowY: "scroll",
           overflowX: "hidden",
-          scrollSnapType: "y mandatory",
+          msOverflowY: "hidden",
+          scrollSnapType: isMobile ? "unset" : "y mandatory",
           scrollBehavior: "smooth",
           
         }}
       >
-        {/* Section 1 */}
+        {/* Section 1 -- Introduction */}
         <Box
           id="section01"
           sx={{
@@ -46,14 +60,14 @@ export default function Home() {
             backgroundColor: theme.palette.secondary.dark,
             color: "white",
             position: "relative",
+            right: isMobile ?  "2%": 0,
           }}
         >
           <Introduction />
-          {/* ScrollArrow only on the first page */}
-          <ScrollArrow href="#section02" />
+          { (largeScreen || mediumScreen) && scrollArrow}
         </Box>
 
-        {/* Section 2 */}
+        {/* Section 2 -- Timeline */}
         <Box
           id="section02"
           sx={{
@@ -64,34 +78,30 @@ export default function Home() {
             alignItems: "center",
             scrollSnapAlign: "start",
             backgroundColor: theme.palette.secondary.dark,
-            color: "white",
           }}
         >
-          <Paper sx={{
-            textAlign: 'center',
-            color: theme.palette.secondary.dark,
-            height: 60,
-            lineHeight: '60px',
-            marginTop: "10%",
-          }}>
-          </Paper>
-           <Timeline/> {/*timeline built using gsap animations*/}
+          {isMobile ? <TimelineMobile /> : <Timeline />}
+
         </Box>
 
-        {/* Section 3 */}
+        {/* Section 3 -- Skills*/}
         <Box
           id="section03"
           sx={{
             height: "100vh",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            textAlign: "center", 
             scrollSnapAlign: "start",
             backgroundColor: theme.palette.secondary.dark,
             color: "white",
+            position: "relative",
+            right: isMobile ?  "2%": 0,
           }}
         >
-          <Typography variant="h2">Projects</Typography>
+          <MySkills/>
         </Box>
       </Box>
     </ThemeProvider>

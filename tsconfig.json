@@ -26,6 +26,7 @@
       "@hooks/*": ["./src/app/hooks/*"],
       "@documents/*": ["./src/app/documents/*"],
       "@data/*": ["./src/app/data/*"],
+      "@icons/*": ["./public/icons/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 
-const WaveAnimation = () => {
+
+const WaveAnimation = ({}) => {
   useEffect(() => {
     const animation = gsap.to(".icon", {
       rotation: 15,
@@ -18,7 +19,7 @@ const WaveAnimation = () => {
   }, []);
 
   return (
-    <div className="icon" style={{ fontSize: "5rem", textAlign: "center" }}>
+    <div className="icon" style={{ fontSize: "6.5rem", textAlign: "center", }}>
       👋
     </div>
   );

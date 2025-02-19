@@ -6,26 +6,28 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import DownloadIcon from "@mui/icons-material/Download";
 
-const ContactBar = () => {
+const ContactBar = ({sx}) => {
   return (
     <Box
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: 2, // Space between items
-        mt: 4, // Margin-top for spacing
+        gap: 2, 
+        mt: 4,
+        ...sx,   
+
       }}
     >
       <Stack
         direction="row"
-        spacing={2} // Spacing between icons
+        spacing={2} 
         alignItems="center"
       >
         {/*GitHub*/}
         <IconButton
           component="a"
-          href="https://github.com/NasierF" // Replace with your GitHub URL
+          href="https://github.com/NasierF" 
           target="_blank"
           rel="noopener noreferrer"
           sx={{ color: "primary.main", 
@@ -41,10 +43,10 @@ const ContactBar = () => {
           <GitHubIcon sx={{ fontSize: "4rem" }}/>
         </IconButton>
 
-        {/*LinkedIn Icon*/}
+        {/*LinkedIn*/}
         <IconButton
           component="a"
-          href="https://linkedin.com/in/nasierfowlkes" // Replace with your LinkedIn URL
+          href="https://linkedin.com/in/nasierfowlkes" 
           target="_blank"
           rel="noopener noreferrer"
           sx={{ color: "primary.main", 
@@ -61,7 +63,7 @@ const ContactBar = () => {
         {/*Email*/}
         <IconButton
           component="a"
-          href="mailto:your-email@nasier.fowlkes@temple.edu" 
+          href="mailto:nasier.fowlkes@temple.edu" 
           sx={{ 
             color: "primary.main", 
             fontSize: "1.5rem",
@@ -74,10 +76,10 @@ const ContactBar = () => {
           <EmailIcon sx={{ fontSize: "4rem" }}/>
         </IconButton>
 
-        {/* Phone Icon */}
+        {/* Phone*/}
         <IconButton
           component="a"
-          href="tel:+6106627443" 
+          href="tel:+16106627443" 
           sx={{ 
             color: "primary.main", 
             fontSize: "1.5rem",
@@ -91,12 +93,12 @@ const ContactBar = () => {
         </IconButton>
       </Stack>
 
-      {/* Resume Button */}
+      {/* Resume*/}
       <Button
         variant="contained"
         color="primary"
         startIcon={<DownloadIcon />}
-        href="/Nasier_Fowlkes_Resume.pdf" // Replace with your resume URL
+        href="/Nasier_Fowlkes_Resume.pdf" 
         target="_blank"
         rel="noopener noreferrer"
         sx={{

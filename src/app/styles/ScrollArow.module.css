@@ -7,9 +7,21 @@
   color: white;
   text-decoration: none;
   transition: opacity 0.3s;
-  font-family: "Poppins", sans-serif; /* Add desired font */
-  font-size: 16px; /* Adjust text size */
-  text-align: center; /* Center align text */
+  font-family: "Poppins", sans-serif; 
+  font-size: 16px; 
+  text-align: center; 
+  
+}
+
+.scrollArrow::before {
+  content: "";
+  position: absolute;
+  width: 60px; /* Expand the clickable area */
+  height: 80px; /* Adjust height to include text & circle */
+  top: -20px; /* Shift hitbox upward */
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
 }
 
 .scrollArrow:hover {
@@ -26,6 +38,7 @@
   border: 1px solid #fff;
   border-radius: 50%;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 .scrollArrow span::after {

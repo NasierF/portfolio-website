@@ -63,7 +63,7 @@ const ContactBar = ({sx}) => {
         {/*Email*/}
         <IconButton
           component="a"
-          href="mailto:your-email@nasier.fowlkes@temple.edu" 
+          href="mailto:nasier.fowlkes@temple.edu" 
           sx={{ 
             color: "primary.main", 
             fontSize: "1.5rem",

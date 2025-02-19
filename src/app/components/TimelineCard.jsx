@@ -58,6 +58,7 @@ const TimelineCard = ({ title, date, type, linkTitle, linkUrl, isHighlighted }) 
                         label={linkTitle}
                         component="a"
                         href={linkUrl}
+                        target="_blank"
                         clickable
                         sx={{
                             backgroundColor: "primary.main",

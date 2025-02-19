@@ -1,6 +1,8 @@
 "use client";
+import { useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import "@fontsource/poppins/400.css"; // Regular weight
 import "@fontsource/poppins/700.css"; // Bold weight
 import { Box, Typography, ThemeProvider, useMediaQuery, Paper } from "@mui/material";
@@ -11,16 +13,23 @@ import ScrollArrow from "@compnents/ScrollArrow";
 import useSmoothScroll from "@/app/hooks/useSmoothScroll";
 import Timeline from "@compnents/Timeline";
 import MySkills from "@compnents/MySkills";
-
-
+import TimelineMobile from "@compnents/TimelineMobile"
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
+
+
 
 export default function Home() {
+  const scrollArrow = useMemo(() => <ScrollArrow target="#section02" />, []);//pre render 
   useSmoothScroll(); //Hook for smooth scrolling
   const isMobile = useMediaQuery("(max-width:600px)");
   const smallScreen = useMediaQuery(theme.breakpoints.down("xs"));
   const mediumScreen = useMediaQuery(theme.breakpoints.up("sm"));
   const largeScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const XS = useMediaQuery(theme.breakpoints.down("xs")); // <600px
+  const SM = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600px - 899px
+  const MD = useMediaQuery(theme.breakpoints.between("md", "lg")); // 900px - 1199px
+  const LG = useMediaQuery(theme.breakpoints.up("lg")); // ≥1200px
 
   return (
     <ThemeProvider theme={theme} >
@@ -51,10 +60,11 @@ export default function Home() {
             backgroundColor: theme.palette.secondary.dark,
             color: "white",
             position: "relative",
+            right: isMobile ?  "2%": 0,
           }}
         >
           <Introduction />
-          { (largeScreen || mediumScreen) && <ScrollArrow href="#section02" />}
+          { (largeScreen || mediumScreen) && scrollArrow}
         </Box>
 
         {/* Section 2 -- Timeline */}
@@ -70,7 +80,8 @@ export default function Home() {
             backgroundColor: theme.palette.secondary.dark,
           }}
         >
-           <Timeline/> {/*timeline built using gsap animations*/}
+          {isMobile ? <TimelineMobile /> : <Timeline />}
+
         </Box>
 
         {/* Section 3 -- Skills*/}
@@ -86,6 +97,8 @@ export default function Home() {
             scrollSnapAlign: "start",
             backgroundColor: theme.palette.secondary.dark,
             color: "white",
+            position: "relative",
+            right: isMobile ?  "2%": 0,
           }}
         >
           <MySkills/>

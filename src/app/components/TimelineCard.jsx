@@ -47,7 +47,7 @@ const TimelineCard = ({ title, date, type, linkTitle, linkUrl, isHighlighted }) 
                 <Typography
                     sx={{
                         paddingTop: "20%",
-                        whiteSpace: "wrap"
+                        whiteSpace: "normal"
                     }}
                     variant="body2">{title}</Typography>
             </CardContent>

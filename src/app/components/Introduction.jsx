@@ -69,7 +69,7 @@ const Introduction = () => {
                 <span
                     style={{ color: theme.palette.primary.main }}>
                     Computer Science {" "}
-                </span>senior at {" "}
+                </span>alumn from {" "}
                 <span className="font-bold"
                     style={{ color: theme.palette.primary.main }}>
                     Temple University

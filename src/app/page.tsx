@@ -99,7 +99,7 @@ export default function Home() {
             color: "white",
             position: "relative",
             right: isMobile ?  "2%": 0,
-            paddingBottom: isMobile ? "calc(env(safe-area-inset-bottom) + 5rem)" : 0,
+            paddingBottom: isMobile ? "calc(env(safe-area-inset-bottom) + 10rem)" : 0,
           }}
         >
           <MySkills/>
